@@ -82,6 +82,8 @@ def _go2_rerun_blueprint() -> Any:
             rrb.Spatial3DView(origin="world", name="3D"),
             column_shares=[1, 2],
         ),
+        rrb.TimePanel(state="hidden"),
+        rrb.SelectionPanel(state="hidden"),
     )
 
 
