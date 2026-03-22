@@ -61,13 +61,17 @@ def create_planner(
     name: str = "rrt_connect",
     **kwargs: Any,
 ) -> PlannerSpec:
-    """Create motion planner. name='rrt_connect'."""
+    """Create motion planner. name='rrt_connect'|'chomp'."""
     if name == "rrt_connect":
         from dimos.manipulation.planning.planners.rrt_planner import RRTConnectPlanner
 
         return RRTConnectPlanner(**kwargs)
+    elif name == "chomp":
+        from dimos.manipulation.planning.planners.chomp_planner import CHOMPPlanner
+
+        return CHOMPPlanner(**kwargs)
     else:
-        raise ValueError(f"Unknown planner: {name}. Available: ['rrt_connect']")
+        raise ValueError(f"Unknown planner: {name}. Available: ['rrt_connect', 'chomp']")
 
 
 def create_planning_stack(
